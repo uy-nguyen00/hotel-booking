@@ -1,4 +1,4 @@
-#To run this: docker build ../../ -f Dockerfile -t sleepr_reservations
+#To run this: docker build ../../ -f Dockerfile -t hb_reservations
 
 FROM node:alpine AS development
 
