@@ -8,9 +8,10 @@ services:
     env_file:
       - ./apps/reservations/.env
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
 
   auth:
     build:
@@ -21,9 +22,10 @@ services:
     env_file:
       - ./apps/auth/.env
     ports:
-      - '3001:3001'
+      - "3001:3001"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
 
   payments:
     build:
@@ -35,6 +37,7 @@ services:
       - ./apps/payments/.env
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
 
   notifications:
     build:
@@ -46,9 +49,12 @@ services:
       - ./apps/notifications/.env
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
 
   mongo:
     image: mongo
+    ports:
+      - "27017:27017"
     volumes:
       - mongo_data:/data/db
 
