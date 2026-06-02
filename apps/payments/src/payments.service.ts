@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import Stripe = require('stripe');
+import Stripe from 'stripe';
 import { ConfigService } from '@nestjs/config';
 import { NOTIFICATIONS_SERVICE } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
