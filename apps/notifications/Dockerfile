@@ -7,14 +7,17 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY pnpm-workspace.yaml ./
+COPY tsconfig.json tsconfig.json
+COPY nest-cli.json nest-cli.json
+COPY apps/notifications/package.json apps/notifications/package.json
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@11.5.0 \
+    && pnpm install --frozen-lockfile
 
-RUN pnpm install
+COPY apps/notifications apps/notifications
+COPY libs libs
 
-COPY . .
-
-RUN pnpm run build
+RUN pnpm run build notifications
 
 FROM node:24-alpine AS production
 
@@ -26,10 +29,10 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY pnpm-lock.yaml ./
 COPY pnpm-workspace.yaml ./
+COPY apps/notifications/package.json apps/notifications/package.json
 
-RUN npm install -g pnpm
-
-RUN pnpm install --prod
+RUN npm install -g pnpm@11.5.0 \
+    && pnpm install --prod --frozen-lockfile
 
 COPY --from=development /usr/src/app/dist ./dist
 

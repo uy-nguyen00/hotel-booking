@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: ./apps/reservations/Dockerfile
       target: development
-    command: pnpm run start:dev reservations #for hot reloading
+    command: sh -c "CI=true pnpm install --frozen-lockfile && pnpm run start:dev reservations" #for hot reloading
     env_file:
       - ./apps/reservations/.env
     ports:
@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: ./apps/auth/Dockerfile
       target: development
-    command: pnpm run start:dev auth
+    command: sh -c "CI=true pnpm install --frozen-lockfile && pnpm run start:dev auth"
     env_file:
       - ./apps/auth/.env
     ports:
@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: ./apps/payments/Dockerfile
       target: development
-    command: pnpm run start:dev payments
+    command: sh -c "CI=true pnpm install --frozen-lockfile && pnpm run start:dev payments"
     env_file:
       - ./apps/payments/.env
     volumes:
@@ -44,7 +44,7 @@ services:
       context: .
       dockerfile: ./apps/notifications/Dockerfile
       target: development
-    command: pnpm run start:dev notifications
+    command: sh -c "CI=true pnpm install --frozen-lockfile && pnpm run start:dev notifications"
     env_file:
       - ./apps/notifications/.env
     volumes:
