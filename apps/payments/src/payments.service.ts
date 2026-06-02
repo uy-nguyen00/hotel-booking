@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import Stripe from 'stripe';
+import Stripe = require('stripe');
 import { ConfigService } from '@nestjs/config';
 import { NOTIFICATIONS_SERVICE } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
@@ -9,9 +9,6 @@ import { PaymentsCreateChargeDto } from './dto/payments-create-charge.dto';
 export class PaymentsService {
   private readonly stripe = new Stripe(
     this.configService.get('STRIPE_SECRET_KEY'),
-    {
-      apiVersion: Stripe.API_VERSION,
-    },
   );
 
   constructor(
