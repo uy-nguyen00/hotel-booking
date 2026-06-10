@@ -1,5 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import Stripe from 'stripe';
+// Stripe's CommonJS entry point exports the constructor directly.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+import Stripe = require('stripe');
 import { ConfigService } from '@nestjs/config';
 import { NOTIFICATIONS_SERVICE } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
