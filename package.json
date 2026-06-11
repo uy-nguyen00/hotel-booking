@@ -32,7 +32,7 @@
     "class-validator": "^0.15.1",
     "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
-    "joi": "^17.13.3",
+    "joi": "^18.2.1",
     "mongoose": "^8.22.1",
     "nestjs-pino": "^4.6.1",
     "pino-http": "^10.3.0",
