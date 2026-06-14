@@ -1,5 +1,6 @@
 packages:
   - 'apps/*'
+injectWorkspacePackages: true
 allowBuilds:
   '@nestjs/core': true
   nestjs-pino: true

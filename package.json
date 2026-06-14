@@ -20,7 +20,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/reservations/test/jest-e2e.json"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.21",
     "@nestjs/common": "^11.1.24",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.1.24",
@@ -28,6 +29,7 @@
     "@nestjs/microservices": "^11.1.24",
     "@nestjs/mongoose": "^11.0.4",
     "@nestjs/platform-express": "^11.1.24",
+<<<<<<< HEAD
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "cookie-parser": "^1.4.7",
@@ -42,6 +44,8 @@
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.21",
+=======
+>>>>>>> 238e2b0 (build(deps): assign service runtime dependencies)
     "@nestjs/schematics": "^11.1.0",
     "@nestjs/testing": "^11.1.24",
     "@types/cookie-parser": "^1.4.7",
@@ -51,11 +55,23 @@
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "cookie-parser": "^1.4.7",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
+    "express": "^5.2.1",
     "jest": "^29.7.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.22.1",
+    "nestjs-pino": "^4.6.1",
+    "pino": "^9.4.0",
+    "pino-http": "^10.3.0",
+    "pino-pretty": "^11.2.2",
     "prettier": "^3.8.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
     "source-map-support": "^0.5.21",
     "supertest": "^7.2.2",
     "ts-jest": "^29.4.11",

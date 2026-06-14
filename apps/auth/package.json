@@ -1,21 +1,31 @@
 {
   "name": "@hotel-booking/auth",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "dependencies": {
+    "@nestjs/common": "^11.1.24",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.1.24",
     "@nestjs/jwt": "^11.0.2",
+    "@nestjs/microservices": "^11.1.24",
+    "@nestjs/mongoose": "^11.0.4",
     "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.1.24",
     "bcryptjs": "^2.4.3",
+    "class-validator": "^0.15.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "joi": "^17.13.3",
+    "mongoose": "^8.22.1",
+    "nestjs-pino": "^4.6.1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pino": "^9.4.0",
+    "pino-http": "^10.3.0",
+    "pino-pretty": "^11.2.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
