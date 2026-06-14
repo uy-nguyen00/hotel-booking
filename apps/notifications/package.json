@@ -10,7 +10,7 @@
     "@nestjs/mongoose": "^11.0.4",
     "@nestjs/platform-express": "^11.1.24",
     "class-validator": "^0.15.1",
-    "joi": "^17.13.3",
+    "joi": "^17.13.4",
     "mongoose": "^8.22.1",
     "nestjs-pino": "^4.6.1",
     "nodemailer": "^8.0.5",
