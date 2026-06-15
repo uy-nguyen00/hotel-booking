@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM node@sha256:fb71d01345f11b708a3553c66e7c74074f2d506400ea81973343d915cb64eef0 AS development
+FROM node:24.16.0-alpine3.24 AS development
 
 WORKDIR /usr/src/app
 
@@ -26,7 +26,7 @@ FROM development AS deployment
 RUN --mount=type=cache,id=pnpm-payments,target=/pnpm/store \
     pnpm --filter @hotel-booking/payments --prod deploy /prod/payments
 
-FROM node@sha256:fb71d01345f11b708a3553c66e7c74074f2d506400ea81973343d915cb64eef0 AS production
+FROM node:24.16.0-alpine3.24 AS production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
