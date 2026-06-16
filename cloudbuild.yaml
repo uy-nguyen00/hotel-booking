@@ -1,0 +1,71 @@
+substitutions:
+  _LOCATION: europe-west1
+  _REPOSITORY: hotel-booking
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: 1800s
+
+steps:
+  - id: build-reservations
+    name: gcr.io/cloud-builders/docker
+    env:
+      - DOCKER_BUILDKIT=1
+    args:
+      - build
+      - --target
+      - production
+      - -f
+      - apps/reservations/Dockerfile
+      - -t
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/reservations:$SHORT_SHA
+      - .
+
+  - id: build-auth
+    name: gcr.io/cloud-builders/docker
+    env:
+      - DOCKER_BUILDKIT=1
+    args:
+      - build
+      - --target
+      - production
+      - -f
+      - apps/auth/Dockerfile
+      - -t
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/auth:$SHORT_SHA
+      - .
+
+  - id: build-payments
+    name: gcr.io/cloud-builders/docker
+    env:
+      - DOCKER_BUILDKIT=1
+    args:
+      - build
+      - --target
+      - production
+      - -f
+      - apps/payments/Dockerfile
+      - -t
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/payments:$SHORT_SHA
+      - .
+
+  - id: build-notifications
+    name: gcr.io/cloud-builders/docker
+    env:
+      - DOCKER_BUILDKIT=1
+    args:
+      - build
+      - --target
+      - production
+      - -f
+      - apps/notifications/Dockerfile
+      - -t
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/notifications:$SHORT_SHA
+      - .
+
+images:
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/reservations:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/auth:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/payments:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/notifications:$SHORT_SHA
