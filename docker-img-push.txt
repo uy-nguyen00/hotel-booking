@@ -1,0 +1,17 @@
+# Preferred path: Cloud Build builds and pushes all service images from cloudbuild.yaml.
+# Use this manual submit command to test the same pipeline without waiting for a trigger.
+
+COMMIT_SHA=$(git rev-parse HEAD)
+SHORT_SHA=$(git rev-parse --short=7 HEAD)
+
+gcloud builds submit \
+  --project=hotel-booking-dev-499018 \
+  --config=cloudbuild.yaml \
+  --substitutions=COMMIT_SHA="$COMMIT_SHA",SHORT_SHA="$SHORT_SHA" \
+  .
+
+# Deploy the same image tag with Helm:
+helm upgrade --install hotel-booking k8s/hotel-booking \
+  --namespace hotel-booking-local \
+  --create-namespace \
+  --set images.tag="$SHORT_SHA"
