@@ -15,7 +15,7 @@ spec:
         app: auth
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/auth:{{ .Values.images.tag }}"
+        - image: "{{ .Values.images.registry }}/auth/production:{{ .Values.images.tag }}"
           imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: auth
           env:

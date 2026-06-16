@@ -1,6 +1,5 @@
 substitutions:
   _LOCATION: europe-west1
-  _REPOSITORY: hotel-booking
 
 options:
   logging: CLOUD_LOGGING_ONLY
@@ -19,7 +18,7 @@ steps:
       - -f
       - apps/reservations/Dockerfile
       - -t
-      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/reservations:$SHORT_SHA
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/reservations/production:$SHORT_SHA
       - .
 
   - id: build-auth
@@ -33,7 +32,7 @@ steps:
       - -f
       - apps/auth/Dockerfile
       - -t
-      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/auth:$SHORT_SHA
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/auth/production:$SHORT_SHA
       - .
 
   - id: build-payments
@@ -47,7 +46,7 @@ steps:
       - -f
       - apps/payments/Dockerfile
       - -t
-      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/payments:$SHORT_SHA
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/payments/production:$SHORT_SHA
       - .
 
   - id: build-notifications
@@ -61,11 +60,11 @@ steps:
       - -f
       - apps/notifications/Dockerfile
       - -t
-      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/notifications:$SHORT_SHA
+      - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/notifications/production:$SHORT_SHA
       - .
 
 images:
-  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/reservations:$SHORT_SHA
-  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/auth:$SHORT_SHA
-  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/payments:$SHORT_SHA
-  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/notifications:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/reservations/production:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/auth/production:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/payments/production:$SHORT_SHA
+  - ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/notifications/production:$SHORT_SHA

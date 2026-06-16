@@ -15,7 +15,7 @@ spec:
         app: reservations
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/reservations:{{ .Values.images.tag }}"
+        - image: "{{ .Values.images.registry }}/reservations/production:{{ .Values.images.tag }}"
           imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: reservations
           env:
