@@ -15,7 +15,8 @@ spec:
         app: reservations
     spec:
       containers:
-        - image: europe-west9-docker.pkg.dev/hotel-booking-dev-498209/reservations/production
+        - image: "{{ .Values.images.registry }}/reservations:{{ .Values.images.tag }}"
+          imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: reservations
           env:
             - name: MONGODB_URI

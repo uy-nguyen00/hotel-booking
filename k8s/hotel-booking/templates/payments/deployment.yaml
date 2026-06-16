@@ -15,7 +15,8 @@ spec:
         app: payments
     spec:
       containers:
-        - image: europe-west9-docker.pkg.dev/hotel-booking-dev-498209/payments/production
+        - image: "{{ .Values.images.registry }}/payments:{{ .Values.images.tag }}"
+          imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: payments
           env:
             - name: PORT
