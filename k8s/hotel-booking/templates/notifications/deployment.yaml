@@ -15,7 +15,7 @@ spec:
         app: notifications
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/notifications:{{ .Values.images.tag }}"
+        - image: "{{ .Values.images.registry }}/notifications/production:{{ .Values.images.tag }}"
           imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: notifications
           env:

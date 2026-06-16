@@ -15,7 +15,7 @@ spec:
         app: payments
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/payments:{{ .Values.images.tag }}"
+        - image: "{{ .Values.images.registry }}/payments/production:{{ .Values.images.tag }}"
           imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
           name: payments
           env:

@@ -3,6 +3,6 @@ ingress:
   host: hotel-booking.localhost
 
 images:
-  registry: europe-west1-docker.pkg.dev/hotel-booking-dev-499018/hotel-booking
+  registry: europe-west1-docker.pkg.dev/hotel-booking-dev-499018
   tag: dev
   pullPolicy: IfNotPresent
