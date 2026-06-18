@@ -1,6 +1,9 @@
-ingress:
-  className: nginx
+gateway:
+  className: traefik
   host: hotel-booking.localhost
+  tls:
+    enabled: false
+    certificateSecretName: ""
 
 images:
   registry: europe-west1-docker.pkg.dev/hotel-booking-dev-499018

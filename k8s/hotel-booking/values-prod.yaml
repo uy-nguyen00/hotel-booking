@@ -1,0 +1,5 @@
+gateway:
+  host: ""
+  tls:
+    enabled: true
+    certificateSecretName: ""

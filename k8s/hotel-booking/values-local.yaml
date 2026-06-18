@@ -1,0 +1,5 @@
+gateway:
+  host: hotel-booking.localhost
+  tls:
+    enabled: false
+    certificateSecretName: ""
