@@ -15,8 +15,8 @@ spec:
         app: reservations
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/reservations/production:{{ .Values.images.tag }}"
-          imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
+        - image: '{{ .Values.images.registry }}/reservations/production:{{ required "images.tag is required" .Values.images.tag }}'
+          imagePullPolicy: "{{ .Values.images.pullPolicy }}"
           name: reservations
           env:
             - name: MONGODB_URI

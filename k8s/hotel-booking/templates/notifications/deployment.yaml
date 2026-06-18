@@ -15,8 +15,8 @@ spec:
         app: notifications
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/notifications/production:{{ .Values.images.tag }}"
-          imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
+        - image: '{{ .Values.images.registry }}/notifications/production:{{ required "images.tag is required" .Values.images.tag }}'
+          imagePullPolicy: "{{ .Values.images.pullPolicy }}"
           name: notifications
           env:
             - name: PORT
