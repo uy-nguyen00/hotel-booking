@@ -1,0 +1,7 @@
+- Root `package.json` → tooling/scripts.
+- Root `pnpm-lock.yaml` → deterministic workspace.
+- Service `package.json` → ownership/runtime deps.
+- `pnpm --filter ... deploy` → svc-only prod image.
+- `libs/common` → shared source bundled by Nest.
+
+Main cost: duplicated dependency declarations across svc manifests. Acceptable; explicit runtime ownership > hidden root dependency coupling.
