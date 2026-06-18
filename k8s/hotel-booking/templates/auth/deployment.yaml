@@ -15,8 +15,8 @@ spec:
         app: auth
     spec:
       containers:
-        - image: "{{ .Values.images.registry }}/auth/production:{{ .Values.images.tag }}"
-          imagePullPolicy: {{ .Values.images.pullPolicy | quote }}
+        - image: '{{ .Values.images.registry }}/auth/production:{{ required "images.tag is required" .Values.images.tag }}'
+          imagePullPolicy: "{{ .Values.images.pullPolicy }}"
           name: auth
           env:
             - name: MONGODB_URI
