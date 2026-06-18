@@ -1,0 +1,19 @@
+providers:
+  kubernetesCRD:
+    enabled: false
+  kubernetesIngress:
+    enabled: false
+  kubernetesGateway:
+    enabled: true
+
+ingressClass:
+  enabled: false
+
+gateway:
+  enabled: false
+
+gatewayClass:
+  enabled: false
+
+service:
+  type: LoadBalancer
