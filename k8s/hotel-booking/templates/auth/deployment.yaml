@@ -19,6 +19,13 @@ spec:
         - image: '{{ .Values.images.registry }}/auth/production:{{ required "images.tag is required" .Values.images.tag }}'
           imagePullPolicy: "{{ .Values.images.pullPolicy }}"
           name: auth
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+              ephemeral-storage: 128Mi
+            limits:
+              memory: 256Mi
           env:
             - name: MONGODB_URI
               valueFrom:
