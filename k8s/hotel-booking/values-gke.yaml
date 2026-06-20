@@ -1,0 +1,12 @@
+ingress:
+  enabled: true
+  className: ""
+  host: ""
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.global-static-ip-name: hotel-booking-ip
+    networking.gke.io/managed-certificates: hotel-booking-cert
+  managedCertificate:
+    enabled: true
+    name: hotel-booking-cert
+    domains: []
