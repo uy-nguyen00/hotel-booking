@@ -7,8 +7,3 @@ ingress:
     enabled: false
     name: hotel-booking-cert
     domains: []
-
-images:
-  registry: europe-west1-docker.pkg.dev/hotel-booking-dev-499018
-  tag: ''
-  pullPolicy: IfNotPresent
