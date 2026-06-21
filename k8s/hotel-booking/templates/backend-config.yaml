@@ -1,0 +1,21 @@
+{{- if .Values.backendConfig.enabled }}
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: {{ required "backendConfig.authHealth.name is required" .Values.backendConfig.authHealth.name | quote }}
+spec:
+  healthCheck:
+    type: HTTP
+    requestPath: {{ required "backendConfig.authHealth.requestPath is required" .Values.backendConfig.authHealth.requestPath | quote }}
+    port: {{ required "backendConfig.authHealth.port is required" .Values.backendConfig.authHealth.port }}
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: {{ required "backendConfig.reservationsHealth.name is required" .Values.backendConfig.reservationsHealth.name | quote }}
+spec:
+  healthCheck:
+    type: HTTP
+    requestPath: {{ required "backendConfig.reservationsHealth.requestPath is required" .Values.backendConfig.reservationsHealth.requestPath | quote }}
+    port: {{ required "backendConfig.reservationsHealth.port is required" .Values.backendConfig.reservationsHealth.port }}
+{{- end }}

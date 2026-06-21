@@ -11,6 +11,13 @@ spec:
 {{- with .Values.ingress.className }}
   ingressClassName: {{ . | quote }}
 {{- end }}
+{{- if .Values.ingress.defaultBackend.enabled }}
+  defaultBackend:
+    service:
+      name: {{ required "ingress.defaultBackend.serviceName is required" .Values.ingress.defaultBackend.serviceName | quote }}
+      port:
+        number: {{ required "ingress.defaultBackend.servicePort is required" .Values.ingress.defaultBackend.servicePort }}
+{{- end }}
   rules:
     - host: {{ required "ingress.host is required" .Values.ingress.host | quote }}
       http:

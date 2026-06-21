@@ -10,3 +10,26 @@ ingress:
     enabled: true
     name: hotel-booking-cert
     domains: []
+  defaultBackend:
+    enabled: true
+    serviceName: auth-http
+    servicePort: 3003
+
+services:
+  authHttp:
+    annotations:
+      cloud.google.com/backend-config: '{"ports":{"3003":"hotel-booking-auth-health"}}'
+  reservations:
+    annotations:
+      cloud.google.com/backend-config: '{"ports":{"3004":"hotel-booking-reservations-health"}}'
+
+backendConfig:
+  enabled: true
+  authHealth:
+    name: hotel-booking-auth-health
+    requestPath: /health
+    port: 3003
+  reservationsHealth:
+    name: hotel-booking-reservations-health
+    requestPath: /health
+    port: 3004

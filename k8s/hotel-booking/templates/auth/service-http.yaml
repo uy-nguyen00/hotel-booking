@@ -4,6 +4,10 @@ metadata:
   labels:
     app: auth
   name: auth-http
+{{- with .Values.services.authHttp.annotations }}
+  annotations:
+{{ toYaml . | nindent 4 }}
+{{- end }}
 spec:
   ports:
     - name: 'http'

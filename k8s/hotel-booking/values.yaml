@@ -3,10 +3,31 @@ ingress:
   className: nginx
   host: hotel-booking.localhost
   annotations: {}
+  defaultBackend:
+    enabled: false
+    serviceName: auth-http
+    servicePort: 3003
   managedCertificate:
     enabled: false
     name: hotel-booking-cert
     domains: []
+
+services:
+  authHttp:
+    annotations: {}
+  reservations:
+    annotations: {}
+
+backendConfig:
+  enabled: false
+  authHealth:
+    name: hotel-booking-auth-health
+    requestPath: /health
+    port: 3003
+  reservationsHealth:
+    name: hotel-booking-reservations-health
+    requestPath: /health
+    port: 3004
 
 images:
   registry: europe-west1-docker.pkg.dev/hotel-booking-dev-499018
