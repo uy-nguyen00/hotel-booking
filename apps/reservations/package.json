@@ -14,7 +14,7 @@
     "class-validator": "^0.15.1",
     "cookie-parser": "^1.4.7",
     "joi": "^17.13.4",
-    "mongoose": "^8.22.1",
+    "mongoose": "^8.24.1",
     "nestjs-pino": "^4.6.1",
     "pino": "^9.4.0",
     "pino-http": "^10.3.0",
